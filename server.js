@@ -19,6 +19,8 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
 app.use(express.static(process.cwd() + '/public'));
 //app.use('/static', express.static('public'));
+var models = require('./models')
+
 
 var routes = require('./config/controller.js');
 app.use('/', routes);
@@ -30,6 +32,9 @@ app.listen(process.env.PORT || 8000, function() {
 
 
 app.listen(PORT);
+
+
+
 
 
 

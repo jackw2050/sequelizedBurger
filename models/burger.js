@@ -1,22 +1,31 @@
-// Burger Model
-// ===============
-'use strict';
+/*
+Here is where you setup a model for how to interface with the database.
+*/
 
-// EXPORT THIS MODULE TO INDEX.JS
-module.exports = function(sequelize, DataTypes) {
-  // the model is Character, defined in sequelize
-  var Burger = sequelize.define('burgers', {
+var orm = require('../config/orm.js');
 
-    burger_name: DataTypes.STRING,
-    devoured: DataTypes.BOOLEAN,
-    date: DataTypes.DATE,
-  }, {
-    // you'll be using this in the next class. Ignore it for now
-    classMethods: {
-      associate: function(models) {
-        // IGNORE THIS FOR NOW
-      }
-    }
-  });
-  return Burger;
+var burger = {
+	all: function(cb) {
+		orm.all('burgers', function(res){
+			cb(res);
+		});
+	},
+	//cols and vals are arrays
+	create: function(cols, vals, cb) {
+		orm.create('burgers', cols, vals, function(res){
+			cb(res);
+		});
+	},
+	update: function(objColVals, condition, cb) {
+		orm.update('burgers', objColVals, condition, function(res){
+			cb(res);
+		});
+	},
+	delete: function(condition, cb){
+		orm.delete('burgers', condition, function(res){
+			cb(res);
+		});
+	}
 };
+
+module.exports = burger;

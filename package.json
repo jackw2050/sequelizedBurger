@@ -1,34 +1,26 @@
 {
-  "name": "eat-da-burger",
+  "name": "mvc_design",
   "version": "1.0.0",
-  "description": "Eat-Da-Burger! is a restaurant app that lets users input the names of burgers they'd like to eat.",
+  "description": "",
+    "engines": {
+    "npm": "3.10.x",
+    "node": "6.3.x"
+  },
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jackw2050/Eat-Da-Burger.git"
-  },
-  "author": "Jack Walker",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jackw2050/Eat-Da-Burger/issues"
-  },
-  "homepage": "https://github.com/jackw2050/Eat-Da-Burger#readme",
-  "devDependencies": {
-    "express": "^4.14.0"
-  },
   "dependencies": {
-    "body-parser": "^1.15.2",
-    "bootstrap": "^3.3.7",
-    "config.json": "0.0.4",
-    "express": "^4.14.0",
-    "express-handlebars": "^3.0.0",
-    "method-override": "^2.3.6",
-    "mysql": "^2.11.1",
-    "sequelize": "^3.23.6",
-    "sequelize-cli": "^2.4.0"
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3",
+    "express-handlebars": "^2.0.1",
+    "method-override": "^2.3.5",
+    "mysql": "^2.10.2",
+    "node": "0.0.0"
+  },
+  "devDependencies": {
+    "handlebars-helper-css": "^0.1.0"
   }
 }

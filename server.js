@@ -1,45 +1,35 @@
-var orm = require('./config/orm.js');
+/*
+Here is where you set up your server file.
+express middleware.
+*/
+
 var express = require('express');
-var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
-var methodOverride = require('method-override');
+var methodOverride = require('method-override')
 
-var PORT = 8080;
 var app = express();
-var exphbs = require('express-handlebars');
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
-app.set('view engine', 'handlebars');
-var router = express.Router();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));// should this be true or false??
-app.use(bodyParser.text());
-app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
-//app.use(express.static('public'));
-
+//Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static(process.cwd() + '/public'));
-//app.use('/static', express.static('public'));
-var models = require('./models')
 
+app.use(bodyParser.urlencoded({
+	extended: false
+}))
+// override with POST having ?_method=DELETE
+app.use(methodOverride('_method'))
+var exphbs = require('express-handlebars');
+app.engine('handlebars', exphbs({
+    defaultLayout: 'main'
+}));
+app.set('view engine', 'handlebars');
 
-var routes = require('./config/controller.js');
+var routes = require('./controllers/burger_controller.js');
 app.use('/', routes);
 
-app.listen(process.env.PORT || 8000, function() {
-    console.log('App listening on PORT ' + PORT);
+//var port = 3000;
+//app.listen(port);
+
+
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Express server listening on port " + this.address().port + " in " + app.settings.env + " mode" );
 });
-
-
-
-app.listen(PORT);
-
-
-
-
-
-
-
-
-
-
-

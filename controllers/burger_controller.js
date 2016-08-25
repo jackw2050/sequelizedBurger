@@ -25,7 +25,7 @@ router.get('/burgers', function(req,res) {
 router.post('/burgers/create', function(req,res) {
 
   models.Burger.create({
-    burger_name: req.body.burger_name,
+    burger_name: req.params.burger_name,
     devoured: req.params.devoured
   })
   .then(function() {
